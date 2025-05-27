@@ -22,8 +22,8 @@ const app = express();
 // Middleware
 app.use(cors({
   origin: process.env.NODE_ENV === 'production' 
-    ? ['https://zentroads-uscb.vercel.app']
-    : ['http://localhost:3000', 'http://localhost:5000'],
+    ? ['https://zentraffic.com/']
+    : ['http://localhost:3000', 'https://api.zentraffic.com/'],
   credentials: true
 }));
 app.use(express.json());
