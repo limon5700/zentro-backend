@@ -18,12 +18,16 @@ connectDB(); // Connect to the database
 
 const app = express();
 
+// ... existing code ...
 // Middleware
 app.use(cors({
-  origin: process.env.NEXT_PUBLIC_FRONTEND_URL || 'https://zentroads-uscb.vercel.app/',
+  origin: process.env.NODE_ENV === 'production' 
+    ? ['https://zentroads-uscb.vercel.app']
+    : ['http://localhost:3000', 'http://localhost:5000'],
   credentials: true
 }));
 app.use(express.json());
+// ... existing code ...
 
 // Create email transporter
 const transporter = nodemailer.createTransport({
